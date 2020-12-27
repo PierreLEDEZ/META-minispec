@@ -1,0 +1,10 @@
+<Start model="Flotte">
+    <model name="Flotte">
+        <entity name="Satellite">
+            <attribute name="nom" type="String"/>
+            <attribute name="id" type="Integer"/>
+            <attribute name="parent" type="Mini-Satellite"/>
+        </entity>
+        <entity name="Mini-Satellite"></entity>
+    </model>
+</Start>
