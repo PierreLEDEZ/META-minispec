@@ -1,0 +1,14 @@
+<Start model="Association_multiple">
+    <model name="Association_multiple">
+        <entity name="Flotte">
+            <association name="satellites" type="List" of="Satellite" min="1" max="10"/>
+        </entity>
+        <entity name="Satellite">
+            <association name="panneaux" type="Array" of="PanneauSolaire" size="2" />
+        </entity>
+        <entity name="Mini-Satellite"></entity>
+        <entity name="PanneauSolaire">
+            <attribute name="nom" type="String"/>
+        </entity>
+    </model>
+</Start>

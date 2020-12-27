@@ -5,4 +5,8 @@ public class Attribute extends NamedElement{
         super(name);
         this.type = type;
     }
+
+    public void accept(Visitor v) {
+        v.visitAttribute(this);
+    }
 }

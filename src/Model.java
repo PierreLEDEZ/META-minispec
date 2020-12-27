@@ -8,4 +8,8 @@ public class Model extends NamedElement{
         this.entities = entities;
     }
 
+    public void accept(Visitor v) {
+        v.visitModel(this);
+    }
+
 }

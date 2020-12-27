@@ -1,5 +1,5 @@
-<Start model="Flotte">
-    <model name="Flotte">
+<Start model="Association_simple">
+    <model name="Assocation_simple">
         <entity name="Satellite">
             <attribute name="nom" type="String"/>
             <attribute name="id" type="Integer"/>

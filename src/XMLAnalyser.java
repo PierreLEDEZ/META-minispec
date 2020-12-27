@@ -6,6 +6,8 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
+import static java.lang.Integer.parseInt;
+
 public class XMLAnalyser {
     public Map<String, Element> elementIndex;
     public Map<String, NamedElement> namedEltIndex;
@@ -31,14 +33,27 @@ public class XMLAnalyser {
     protected Entity entityFromElement(Element el) {
         NodeList nodes = el.getChildNodes();
         ArrayList<Attribute> attributes = new ArrayList<Attribute>();
+        ArrayList<Association> associations = new ArrayList<Association>();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node n = nodes.item(i);
             if (n instanceof Element) {
                 Element child = (Element) n;
-                attributes.add((Attribute)namedElementFromElement(child));
+                if (child.getTagName().equals("association")) {
+                    associations.add((Association)namedElementFromElement(child));
+                } else if (child.getTagName().equals("attribute")) {
+                    attributes.add((Attribute)namedElementFromElement(child));
+                }
             }
         }
-        return new Entity(el.getAttribute("name"), attributes);
+        return new Entity(el.getAttribute("name"), attributes, associations);
+    }
+
+    protected Association associationFromElement(Element e) {
+        if (e.getAttribute("size").isEmpty()) {
+            return new Association(e.getAttribute("name"), parseInt(e.getAttribute("min")), parseInt(e.getAttribute("max")), e.getAttribute("type"), e.getAttribute("of"));
+        } else {
+            return new Association(e.getAttribute("name"), parseInt(e.getAttribute("size")), e.getAttribute("type"), e.getAttribute("of"));
+        }
     }
 
     protected Attribute attributeFromElement(Element e) {
@@ -75,6 +90,8 @@ public class XMLAnalyser {
             result = modelFromElement(e);
         } else if (tag.equals("entity")) {
             result = entityFromElement(e);
+        } else if (tag.equals("association")) {
+            result = associationFromElement(e);
         } else  { //attribute
             result = attributeFromElement(e);
         }
@@ -92,7 +109,7 @@ public class XMLAnalyser {
                 if (child.getNodeName() == "entity" || child.getNodeName() == "model") {
                     explore(child);
                 }
-                System.out.println(name);
+                //System.out.println(name);
                 this.elementIndex.put(name, child);
             }
         }
@@ -140,8 +157,9 @@ public class XMLAnalyser {
         //get <start> element
         Element e = document.getDocumentElement();
         explore(e);
-        System.out.println(this.elementIndex);
+        //System.out.println(this.elementIndex);
         createObjects(e);
+        //System.out.println(this.namedEltIndex);
         return this.namedEltIndex.get(e.getAttribute("model"));
     }
 
