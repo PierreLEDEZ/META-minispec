@@ -2,8 +2,10 @@ public class Minispec {
     public static void main(String[] args) {
         //read and create model
         XMLAnalyser xmlAnalyser = new XMLAnalyser();
-        Model flotte = (Model) xmlAnalyser.getRootFromFilenamed("data/association_multiple.xml");
+        NamedElement result = xmlAnalyser.getRootFromFilenamed("data/association_multiple.xml");
+        Model flotte = (Model) result;
 
+        //Create tools (renaming tool + printer)
         RenamingTool rt = new RenamingTool();
         Printer printer = new Printer();
 
