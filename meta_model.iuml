@@ -35,6 +35,13 @@ Model -right-> "0..*" Entity : entities
 Entity -right-> "0..*" Attribute: attributes
 Entity -down-> "0..*" Association: associations
 
+class Visitor {}
+class Printer {}
+class RenamingTool {}
+
+Visitor <|-- Printer
+Visitor <|-- RenamingTool
+
 hide circle
 hide methods
 @enduml
