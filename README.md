@@ -1,3 +1,3 @@
 # META-minispec
 
-![meta_model](http://www.plantuml.com/plantuml/proxy&src=https://raw.githubusercontent.com/PierreLEDEZ/META-minispec/main/meta_model.iuml)
+![meta_model](http://www.plantuml.com/plantuml/png/RL51RW8n3Bpx5HR7IeiuhweA3Xmuj1TUa6uCQpLnKEnLIsd_ti2APccvsJEZcOcpL7FPXXX0trWEBhk8CKdg-fmYeUM19epspgTtbZtkND0fqmMdkZBB_3eORReaM_uaN01S67nnaVmwK2GnF06Y5A35hUNY1jzNsNFo5F1KWRKOst6A_8PSREnuk6EpKaqTE-Ca5rLaQH4tOhIdVDxTnyskfMjRzrjNnBGhwaa8tBpcyQjfnk9tyB7_Vw8-unvNwmEC9saoxtjhdd2scCyVPjUxj4ZdWKbXHFuAQqwBxZfMSVbDcMXhRb7NHG5wzeGTvoxGE4UoFdc59OaVOlW1)
