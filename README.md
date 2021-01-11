@@ -10,7 +10,7 @@ A model's declaration is done using an xml file, it starts with a &lt;Start&gt; 
 A model element must have a name, just like entity elements, attribute elements and association elements.  
 Except the elements "attribute" and "association", the others must be nested.
 
-## Example
+### Example
 
 ```xml
 <Start model="model_example">
